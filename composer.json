@@ -1,6 +1,6 @@
 {
     "name": "yumemi-inc/php-cs-fixer-config",
-    "description": "Customised configuration for php-cs-fixer.",
+    "description": "Strict, modern, and VCS friendly configuration for php-cs-fixer.",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
         },
         {
             "name": "mpyw",
-            "email": ""
+            "email": "mpyw628@gmail.com"
         }
     ],
     "minimum-stability": "stable",

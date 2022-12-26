@@ -1,7 +1,7 @@
 # 🛠 yumemi-inc/php-cs-fixer-config
-Customised configuration for php-cs-fixer.
+Strict, modern, and VCS friendly configuration for php-cs-fixer.
 
-> **Warning**
+> **Warning**  
 > This is not an official product of YUMEMI Inc.
 
 ## ✨ Features
