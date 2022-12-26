@@ -51,4 +51,4 @@ Contributes of adding new rules or resolving conflicts with our other packages (
 [phpcs-config](https://github.com/yumemi-inc/phpcs-config),
 [php-intellij-profiles](https://github.com/yumemi-inc/php-intellij-profiles)
 ) are welcome.
-Other contributions may not be accepted such as changing the existing rules or removing theirs.
+Other contributions may not be accepted such as changing the existing rules or removing them.
