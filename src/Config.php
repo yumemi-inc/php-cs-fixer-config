@@ -14,17 +14,17 @@ class Config extends BaseConfig
         parent::__construct();
 
         $rules = [
-            // 標準プリセット（下にあるほうが優先度が高い）
+            // Standard presets (High to low priority)
             '@Symfony' => true,
             '@PhpCsFixer' => true,
             '@PHP81Migration' => true,
             '@PSR12' => true,
 
-            // 以下でカスタムをアルファベット順に示す
-            // プリセットを上書きしているものは [ ] で明示
+            // Customised rules are listed in alphabetical order.
+            // Overwritten ruleset(s) by the rule are indicated implicitly in [ ].
 
             // [@PhpCsFixer][@Symfony]
-            // ステートメントの上に 1 空白行が必要 (yield は対象外とする)
+            // Requires one blank line upon statements (excepting yield)
             'blank_line_before_statement' => [
                 'statements' => [
                     'break',
@@ -47,22 +47,22 @@ class Config extends BaseConfig
             ],
 
             // [@PhpCsFixer][@Symfony]
-            // 文字列連結の前後にスペースを入れる
+            // Requires one spaces each side of string concatenating operator
             'concat_space' => ['spacing' => 'one'],
 
-            // "}" と "else" の間に改行を認めない
+            // Restricts blank lines between "}" and "else"
             'control_structure_continuation_position' => true,
 
-            // declare(strict_types=1); のフォーマッティング
+            // Requires formatting of declare(strict_types=1);
             'declare_parentheses' => true,
 
-            // @author など意味のないアノテーションは消す
+            // Removes unnecessary annotations such as @author
             'general_phpdoc_annotation_remove' => true,
 
-            // グローバルにあるものを use させて使う
-            // - クラス → use させる
-            // - 定数 → use させない
-            // - 関数 → use させない
+            // Requires importing items in the global namespace
+            // - Classes: requires "use"
+            // - Constants: restricts "use"
+            // - Functions: restricts "use"
             'global_namespace_import' => [
                 'import_classes' => true,
                 'import_constants' => false,
@@ -70,70 +70,66 @@ class Config extends BaseConfig
             ],
 
             // [@PHP80Migration]
-            // ヒアドキュメントのインデントは自由にする（複数行引数で使ったときに start_plus_one だと見にくい）
+            // Does not enforce heredoc indentation (start_plus_one is hard to read with multiline arguments)
             'heredoc_indentation' => false,
 
             // [@PhpCsFixer]
-            // セミコロンを置く場所
-            // メソッドチェインしたときは最後の呼び出し行に置き，改行しない
+            // Enforces the place of semicolons
+            // Place it after the last call without line feeds on method chains
             'multiline_whitespace_before_semicolons' => ['strategy' => 'no_multi_line'],
 
-            // string $var = null を ?string $var = null にする
+            // Converts "string $var = null" to "?string $var = null"
             'nullable_type_declaration_for_default_null_value' => true,
 
             // [@PhpCsFixer]
-            // PHPUnit TestCase に @internal を付与しなくてもよい
+            // Does not require "@internal" annotations in PHPUnit test cases
             'php_unit_internal_class' => false,
 
             // [@PhpCsFixer]
-            // PHPUnit TestCase のメソッドは命名自由
+            // Does not enforce naming of methods in PHPUnit test cases (This allows using other languages in the names)
             'php_unit_method_casing' => false,
 
             // [@PhpCsFixer]
-            // @covers* アノテーションのないテストに @coversNothing を付与しない
+            // Does not require "@coversNothing" on the tests without "@covers*" annotations
             'php_unit_test_class_requires_covers' => false,
 
-            // PHPDoc の単一行アノテーションを複数行に変換（インラインは対象外）
+            // Requires multiline annotations for PHPDoc (excepting inlines)
             'phpdoc_line_span' => true,
 
             // [@PhpCsFixer][@Symfony]
-            // PHPDoc の各アノテーション種類間の強制的な改行分離を無効化
+            // Does not enforce the separation among PHPDoc annotations
             'phpdoc_separation' => false,
 
             // [@PhpCsFixer][@Symfony]
-            // クラス・関数コメントが「.」で終わらなくてもいいようにする
+            // Does not require comments on classes or functions ending with "."
             'phpdoc_summary' => false,
 
             // [@PhpCsFixer][@Symfony]
-            // @noinspection が修正されないようにする
+            // Does not require using comments instead of PHPDocs for "@noinspection" tag
             'phpdoc_to_comment' => ['ignored_tags' => ['noinspection']],
 
             // [@PhpCsFixer][@Symfony]
-            // ソートアルゴリズムが実態と合っていないので無効化
+            // Disables sorting PHPDoc tags because the sort algorithm does not match what we want
             'phpdoc_types_order' => false,
 
-            // if ($cond) { return true; } else { return false; } を許可しない
+            // Restricts "if ($cond) { return true; } else { return false; }"
             'simplified_if_return' => true,
 
-            // 型を明示していない null リターンは void に変換する
+            // Converts null returns without type annotations to void
             'simplified_null_return' => true,
 
             // [@Symfony]
-            // throw 文の単一行制約を無効化
+            // Does not enforce throw statements in a single line
             'single_line_throw' => false,
 
             // [@PHP80Migration][@PhpCsFixer][@Symfony]
-            // 末尾カンマ付与の徹底
+            // Requires trailing commas when multiline
             'trailing_comma_in_multiline' => [
                 'elements' => ['arrays', 'arguments', 'parameters'],
             ],
 
             // [@PhpCsFixer][@Symfony]
-            // https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues/6102 が解決するまで無効化
-            'types_spaces' => false,
-
-            // [@PhpCsFixer][@Symfony]
-            // ヨーダ記法を禁止する
+            // Restricts the yoda style
             'yoda_style' => [
                 'equal' => false,
                 'identical' => false,
@@ -142,49 +138,49 @@ class Config extends BaseConfig
         ];
 
         $riskyRules = [
-            // 標準プリセット（下にあるほうが優先度が高い）
+            // Standard presets (High to low priority)
             '@Symfony:risky' => true,
             '@PhpCsFixer:risky' => true,
             '@PHP80Migration:risky' => true,
             '@PHPUnit84Migration:risky' => true,
 
             // [@PhpCsFixer:risky][@Symfony:risky]
-            // (string)$var のようにキャストの間は詰める
+            // Restricts spaces between casts and expressions (e.g. "(string)$var")
             'cast_spaces' => ['space' => 'none'],
 
-            // new DateTime を禁止して new DateTimeImmutable を強制
+            // Enforces "new DateTimeImmutable" instead of "new DateTime"
             'date_time_immutable' => true,
 
             // [@PhpCsFixer:risky][@Symfony:risky]
-            // <?= を優先使用
+            // Prioritize "<?=" for echos
             'echo_tag_syntax' => ['format' => 'short'],
 
             // [@PhpCsFixer:risky]
-            // @internal がついたクラスに final を強制しない
+            // Does not require "final" on "@internal" classes
             'final_internal_class' => false,
 
             // [@PhpCsFixer:risky][@Symfony:risky]
-            // ネイティブの定数と関数の前に \ を付与しない
+            // Restricts "\" before native constant and function invocations
             'native_constant_invocation' => false,
             'native_function_invocation' => false,
 
             // [@PhpCsFixer:risky]
-            // assertEquals() など曖昧な比較のアサーションの使用を許可する（DateTimeInterface の比較用）
+            // Does not restrict ambiguous assertions like "assertEquals()" for comparing DateTimeInterface
             'php_unit_strict' => false,
 
             // [@PhpCsFixer:risky][@Symfony:risky]
-            // @test アノテーションを消して test プレフィクスをつける改変を無効にする
+            // Does not enforce "test" prefixes instead of "@test" annotations
             'php_unit_test_annotation' => false,
 
             // [@PhpCsFixer:risky]
-            // assertSame() などを $this-> 形式のコールに統一する
+            // Requires `$this->` calls on PHPUnit static methods like `assertSame()`
             'php_unit_test_case_static_method_calls' => ['call_type' => 'this'],
 
-            // call_user_func*() の使用を禁止する
+            // Restricts uses of "call_user_func*()"
             'regular_callable_call' => true,
 
             // [@PHP80Migration:risky]
-            // アロー関数を矯正しない（読みにくくなることがあるため）
+            // Does not enforce arrow functions (for readability)
             'use_arrow_functions' => false,
         ];
 
