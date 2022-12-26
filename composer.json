@@ -1,0 +1,33 @@
+{
+    "name": "yumemi-inc/php-cs-fixer-config",
+    "description": "Customised configuration for php-cs-fixer.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Naoki Ikeguchi",
+            "email": "n_ikeguchi@yumemi.co.jp"
+        },
+        {
+            "name": "Hirosugu Takeshita",
+            "email": "h_takeshita@yumemi.co.jp"
+        },
+        {
+            "name": "mpyw",
+            "email": ""
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "YumemiInc\\PhpCsFixerConfig\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "friendsofphp/php-cs-fixer": "^3.13"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
