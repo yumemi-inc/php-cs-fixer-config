@@ -17,7 +17,7 @@ class Config extends BaseConfig
             // Standard presets (High to low priority)
             '@Symfony' => true,
             '@PhpCsFixer' => true,
-            '@PHP81Migration' => true,
+            '@PHP82Migration' => true,
             '@PSR12' => true,
 
             // Customised rules are listed in alphabetical order.
