@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace YumemiInc\PhpCsFixerConfig;
+
 use PhpCsFixer\Config as BaseConfig;
 
 class Config extends BaseConfig
