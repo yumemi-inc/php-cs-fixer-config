@@ -120,6 +120,10 @@ class Config extends BaseConfig
             // Converts null returns without type annotations to void
             'simplified_null_return' => true,
 
+            // [@PhpCsFixer]
+            // Disables enforcing empty body block to single line
+            'single_line_empty_body' => true,
+
             // [@Symfony]
             // Does not enforce throw statements in a single line
             'single_line_throw' => false,
