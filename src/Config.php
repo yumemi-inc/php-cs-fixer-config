@@ -122,7 +122,7 @@ class Config extends BaseConfig
 
             // [@PhpCsFixer]
             // Disables enforcing empty body block to single line
-            'single_line_empty_body' => true,
+            'single_line_empty_body' => false,
 
             // [@Symfony]
             // Does not enforce throw statements in a single line
